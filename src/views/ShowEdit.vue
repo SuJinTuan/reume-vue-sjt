@@ -18,7 +18,7 @@
         <el-row class="row">
           <el-col :span="24">
             <span class="tag">个人网址：</span>{{ baseMsg.web }} |
-            <span class="tag">wechat：</span> weixin1899855881
+            <span class="tag">wechat：</span> 1795387338
           </el-col>
         </el-row>
         <el-row class="row skill">
@@ -129,13 +129,13 @@
 
 <script>
 import { mapState } from "vuex";
-import Header from "../components/Header.vue";
+// import Header from "../components/Header.vue";
 import htmlToPdf from "../utils/htmlToPdf";
-import { async } from "q";
+// import { async } from "q";
 
 export default {
   components: {
-    Header,
+    // Header,
   },
   data() {
     return {
