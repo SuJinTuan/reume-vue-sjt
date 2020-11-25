@@ -14,12 +14,6 @@
               item[item.id]
             }}</span>
           </li>
-          <!-- <li v-for="(item, key) in Newmodules" :key="key">
-            <span> Name: {{ item }} </span>
-          </li> -->
-          <!-- <li v-for="(item, key) in Newmodules" :key="key">
-            <span :class="isActive(key)" @click="jump(key)">{{ item }}</span>
-          </li> -->
           <li @click="confirm">
             <span>
               <Icon type="md-add-circle" />
@@ -42,7 +36,7 @@ export default {
   data() {
     return {
       theme3: "light",
-      title: "请输入模块名称",
+
       module: [],
       value: "",
       modules: [],
@@ -85,48 +79,48 @@ export default {
       // console.log(this.$Modal);
       // console.log(this.$message);
       // console.log(this.$Modal.confirm);resetFields
-      this.$Modal.confirm({
-        render: (h) => {
-          return h("Input", {
-            props: {
-              value: this.value,
-              autofocus: true,
-              placeholder: "请输入你添加的模块名称!!",
-              clearable: "",
-            },
-            on: {
-              input: (val) => {
-                this.value = val;
-                if (val !== "") {
-                  this.module.push(this.value);
-                }
-                let flattened = [[...this.modules], [...this.module]].reduce(
-                  function (a, b) {
-                    return a.concat(b);
-                  },
-                  []
-                );
-                console.log(flattened);
-              },
-            },
-          });
-          // console.log(this.value);
-        },
-      });
-
       // this.$Modal.confirm({
-      //   title: "请输入自定义模块的名称",
-      //   content: `<Input clearable style='width: 200px' placeholder='请输入自定义模块的名称'/>`,
-
-      //   onOk: (title) => {
-      //     this.title = title;
-      //     console.log(this.title);
-      //     this.$Message.success("您成功添加模块！");
-      //   },
-      //   onCancel: () => {
-      //     this.$Message.info("模块添加已取消！");
+      //   render: (h) => {
+      //     return h("Input", {
+      //       props: {
+      //         value: this.value,
+      //         autofocus: true,
+      //         placeholder: "请输入你添加的模块名称!!",
+      //         clearable: "",
+      //       },
+      //       on: {
+      //         input: (val) => {
+      //           this.value = val;
+      //           if (val !== "") {
+      //             this.module.push(this.value);
+      //           }
+      //           let flattened = [[...this.modules], [...this.module]].reduce(
+      //             function (a, b) {
+      //               return a.concat(b);
+      //             },
+      //             []
+      //           );
+      //           console.log(flattened);
+      //         },
+      //       },
+      //     });
       //   },
       // });
+
+      this.$Modal.confirm({
+        title: "请输入自定义模块的名称",
+        value: "123",
+        content: `<Input clearable style='width: 200px' v-model="{value=true}" placeholder='请输入自定义模块的名称'/>`,
+
+        onOk: () => {
+          // this.value = value;
+          console.log(this.value);
+          this.$Message.success("您成功添加模块！");
+        },
+        onCancel: () => {
+          this.$Message.info("模块添加已取消！");
+        },
+      });
     },
 
     // 删除模块
